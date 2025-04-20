@@ -10,21 +10,13 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
-  {
+  ...compat.config({
+    extends: ['next'],
     rules: {
-      "no-console": "off",
-      "no-unused-vars": "off",
-      "prefer-const": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "react/no-unescaped-entities": "off",
-      "react/prop-types": "off",
-      
-      "indent": ["error", 2],
-      "quotes": ["error", "single"],
-      "semi": ["error", "always"],
-    }
-  }
-];
+      'react/no-unescaped-entities': 'off',
+      '@next/next/no-page-custom-font': 'off',
+    },
+  }),
+]
 
 export default eslintConfig;
