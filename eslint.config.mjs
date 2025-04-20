@@ -16,6 +16,7 @@ const eslintConfig = [
       "no-console": "warn",
       "no-unused-vars": "error",
       "prefer-const": "error",
+      "@typescript-eslint/no-unused-vars": "off",
       "react/no-unescaped-entities": "off",
       "react/prop-types": "error",
       
