@@ -22,7 +22,6 @@ import {
   DollarSign,
   Bell,
   Menu,
-  X,
   Users,
   BarChart2,
   BookOpen,
