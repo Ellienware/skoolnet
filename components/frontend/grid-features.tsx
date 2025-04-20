@@ -1,5 +1,4 @@
 import Image from "next/image"
-import SmallTitle from "./small-title"
 import SectionHeader from "./section-header"
 import { BookOpen, Bus, ClipboardList, DollarSign, GraduationCap, MessageSquare, Users } from "lucide-react"
 
@@ -74,7 +73,7 @@ export default function GridFeatures() {
      school management platform designed for the modern educational institution."/>
 
       <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-        {/* AI Video Editing Card */}
+
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="p-6">
             <h3 className="text-xl font-semibold mb-2">{features[0].title}</h3>
@@ -119,7 +118,6 @@ export default function GridFeatures() {
           </div>
         </div>
 
-        {/* AI Video Generation Card */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
         <div className="p-6">
             <h3 className="text-xl font-semibold mb-2">{features[1].title}</h3>

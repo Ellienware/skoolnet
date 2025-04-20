@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
-import LogoCloud from "./logo-cloud";
 import Logo from "../ui/logo";
 
 export default function SiteFooter() {
