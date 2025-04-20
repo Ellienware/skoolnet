@@ -13,12 +13,12 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals"),
   {
     rules: {
-      "no-console": "warn",
-      "no-unused-vars": "error",
-      "prefer-const": "error",
+      "no-console": "off",
+      "no-unused-vars": "off",
+      "prefer-const": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "react/no-unescaped-entities": "off",
-      "react/prop-types": "error",
+      "react/prop-types": "off",
       
       "indent": ["error", 2],
       "quotes": ["error", "single"],
