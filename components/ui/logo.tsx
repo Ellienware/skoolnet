@@ -1,4 +1,4 @@
-import { BookOpen, GraduationCap } from 'lucide-react'
+import { BookOpen } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
