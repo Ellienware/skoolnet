@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 
 const Authlayout = ({children}:{children : ReactNode}) => {
   return (
@@ -6,4 +6,4 @@ const Authlayout = ({children}:{children : ReactNode}) => {
   )
 }
 
-export default Authlayout
+export default Authlayout;

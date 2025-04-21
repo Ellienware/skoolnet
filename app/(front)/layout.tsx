@@ -1,6 +1,6 @@
-import SiteFooter from '@/components/frontend/site-footer'
-import SiteHeader from '@/components/site-header'
-import React, { ReactNode } from 'react'
+import SiteFooter from '@/components/frontend/site-footer';
+import SiteHeader from '@/components/site-header';
+import React, { ReactNode } from 'react';
 
 const Frontlayout = ({children}:{children : ReactNode}) => {
   return (
@@ -11,5 +11,4 @@ const Frontlayout = ({children}:{children : ReactNode}) => {
     </div>
   )
 }
-
-export default Frontlayout
+export default Frontlayout;

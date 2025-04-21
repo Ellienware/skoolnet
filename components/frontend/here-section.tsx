@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import SmallTitle from "@/components/frontend/small-title"
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import SmallTitle from "@/components/frontend/small-title";
 
 export default function HeroSection() {
   return (

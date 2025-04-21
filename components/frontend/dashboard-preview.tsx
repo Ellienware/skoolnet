@@ -1,11 +1,9 @@
-import * as React from "react"
-
+import * as React from 'react';
 import {
   Card,
   CardContent,
-} from "@/components/ui/card"
-
-import Image from "next/image"
+} from '@/components/ui/card';
+import Image from 'next/image';
 
 export function DashBoardPreview() {
   return (
@@ -18,10 +16,10 @@ export function DashBoardPreview() {
                     alt='dashboard Preview'
                     width={2016} 
                     height={1210} 
-                    className="w-full rounded-lg" />
+                    className='w-full rounded-lg' />
                 </CardContent>
             </Card>
         </div>
     </div>
   )
-}
+};

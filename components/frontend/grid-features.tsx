@@ -1,6 +1,6 @@
-import Image from "next/image"
-import SectionHeader from "./section-header"
-import { BookOpen, Bus, ClipboardList, DollarSign, GraduationCap, MessageSquare, Users } from "lucide-react"
+import Image from "next/image";
+import SectionHeader from "./section-header";
+import { BookOpen, Bus, ClipboardList, DollarSign, GraduationCap, MessageSquare, Users } from "lucide-react";
 
 const features = [
   {

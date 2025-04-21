@@ -1,9 +1,9 @@
-import { DashBoardPreview } from '@/components/frontend/dashboard-preview'
-import GridFeatures from '@/components/frontend/grid-features'
-import HeroSection from '@/components/frontend/here-section'
-import LogoCloud from '@/components/frontend/logo-cloud'
-import Pricing from '@/components/frontend/pricing-section'
-import React from 'react'
+import { DashBoardPreview } from '@/components/frontend/dashboard-preview';
+import GridFeatures from '@/components/frontend/grid-features';
+import HeroSection from '@/components/frontend/here-section';
+import LogoCloud from '@/components/frontend/logo-cloud';
+import Pricing from '@/components/frontend/pricing-section';
+import React from 'react';
 
 const home = () => {
   return (
@@ -17,4 +17,4 @@ const home = () => {
   )
 }
 
-export default home
+export default home;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 
 const Dashboardlayout = ({children}:{children : ReactNode}) => {
   return (
@@ -6,4 +6,4 @@ const Dashboardlayout = ({children}:{children : ReactNode}) => {
   )
 }
 
-export default Dashboardlayout
+export default Dashboardlayout;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const SmallTitle = ({title}:{title:string}) => {
   return (
@@ -22,4 +22,4 @@ const SmallTitle = ({title}:{title:string}) => {
   )
 }
 
-export default SmallTitle
+export default SmallTitle;

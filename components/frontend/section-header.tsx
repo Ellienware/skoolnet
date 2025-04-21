@@ -1,5 +1,5 @@
-import React from 'react'
-import SmallTitle from './small-title'
+import React from 'react';
+import SmallTitle from './small-title';
 
 export default function SectionHeader({title, heading, description}:{title:string, heading:string, description:string}) {
   return (
