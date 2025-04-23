@@ -141,7 +141,7 @@ export default function SiteHeader() {
                 <NavigationMenuLink asChild>
                     <Link
                         href="/"
-                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-blue-500"
+                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-violet-500"
                             >
                         Home
                     </Link>
@@ -157,7 +157,7 @@ export default function SiteHeader() {
                         <h4 className="text-lg font-medium">Features</h4>
                         <Link
                           href="/features"
-                          className="text-sm text-blue-500 hover:underline"
+                          className="text-sm text-violet-500 hover:underline"
                         >
                           View all
                         </Link>
@@ -173,10 +173,10 @@ export default function SiteHeader() {
                           >
                             <div className="flex items-start gap-4">
                               <div className="p-2 bg-muted rounded-md group-hover:bg-muted/80">
-                                <feature.icon className="h-6 w-6 text-blue-500" />
+                                <feature.icon className="h-6 w-6 text-violet-500" />
                               </div>
                               <div>
-                                <h5 className="font-medium mb-1 group-hover:text-blue-500">
+                                <h5 className="font-medium mb-1 group-hover:text-violet-500">
                                   {feature.title}
                                 </h5>
                                 <p className="text-sm text-muted-foreground line-clamp-2">
@@ -207,7 +207,7 @@ export default function SiteHeader() {
 
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                    <Link href="/#Pricing" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-blue-500">
+                    <Link href="/#Pricing" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-violet-500">
                         Pricing
                     </Link>
                 </NavigationMenuLink>
@@ -216,7 +216,7 @@ export default function SiteHeader() {
 
                 <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                    <Link href="/how-it-works" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-blue-500">
+                    <Link href="/how-it-works" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 group-hover:border-b-2 group-hover:border-violet-500">
                         How it Works
                     </Link>
                 </NavigationMenuLink>
@@ -227,8 +227,11 @@ export default function SiteHeader() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Log in</Button>
-            <Button>Sign up</Button>
+            <Button asChild variant="ghost">
+              <Link href={"/login"}>Log in</Link></Button>
+            <Button>
+              <Link href="/contact-us">Book Demo</Link>
+            </Button>
           </div>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -303,14 +306,12 @@ export default function SiteHeader() {
               <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-background">
                 <div className="grid gap-2">
                   <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => setOpen(false)}
-                  >
-                    Log in
+                    asChild
+                    variant="ghost">
+                    <Link href={"/login"}>Log in</Link>
                   </Button>
-                  <Button className="w-full" onClick={() => setOpen(false)}>
-                    Sign up
+                  <Button>
+                    <Link href="/contact-us">Book Demo</Link>
                   </Button>
                 </div>
               </div>

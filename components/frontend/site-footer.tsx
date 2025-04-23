@@ -48,7 +48,7 @@ export default function SiteFooter() {
           <div className="space-y-4">
             <h3 className="text-lg font-bold">Get In Touch</h3>
             <div className="space-y-2 text-sm">
-              <p>support@pagedone.com</p>
+              <p>support@skoolnet.co.za</p>
               <p>+27 11 658 3256</p>
               <p>61-A, Rivonia street, Johannesburg, South Africa.</p>
             </div>

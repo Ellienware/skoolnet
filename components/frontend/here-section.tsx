@@ -19,7 +19,7 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button className="px-6 py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-full">
+            <Button className="px-6 py-6 bg-violet-600 hover:bg-violet-700 text-white rounded-full">
                 Get Started!
                 <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
