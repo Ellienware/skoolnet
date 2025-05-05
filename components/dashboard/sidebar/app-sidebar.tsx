@@ -82,10 +82,10 @@ export default function AppSidebar() {
           url: "/students",
           icon: Users,
           items: [
-            { title: "Student Directory", url: "/students/directory" },
-            { title: "Enrollment", url: "/students/enrollment" },
-            { title: "Attendance", url: "/students/attendance" },
-            { title: "Performance", url: "/students/performance" },
+            { title: "Student Directory", url: "/dashboard/students" },
+            { title: "Fees", url: "/dashboard/students/fees" },
+            { title: "Student ID s", url: "/dashboard/students/id" },
+            { title: "Attendance", url: "/dashboard/students/attendance" },
           ],
         },
         {

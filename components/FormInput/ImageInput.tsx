@@ -7,6 +7,7 @@ type ImageInputProps = {
   imageUrl: string;
   setImageUrl: any;
   endpoint: any;
+  className:any;
 };
 export default function ImageInput({
   title,

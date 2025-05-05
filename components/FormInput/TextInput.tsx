@@ -6,8 +6,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { CircleHelp } from "lucide-react";
 
-import { CircleHelp, Mail } from "lucide-react";
 type TextInputProps = {
   register: any;
   errors: any;
@@ -17,8 +17,9 @@ type TextInputProps = {
   toolTipText?: string;
   unit?: string;
   placeholder?: string;
-  icon?: any;
+  icon?: React.ComponentType<any>;
 };
+
 export default function TextInput({
   register,
   errors,
@@ -27,12 +28,12 @@ export default function TextInput({
   name,
   toolTipText,
   unit,
-  icon,
+  icon: Icon,
   placeholder,
 }: TextInputProps) {
-  const Icon = icon;
   return (
-    <div>
+    <div className="mb-4 w-full">
+      {/* Label and Tooltip */}
       <div className="flex space-x-2 items-center">
         <label
           htmlFor={name}
@@ -55,9 +56,11 @@ export default function TextInput({
           </TooltipProvider>
         )}
       </div>
+
+      {/* Input field */}
       <div className="mt-2">
-        <div className="relative rounded-md ">
-          {icon && (
+        <div className="relative rounded-md">
+          {Icon && (
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <Icon className="text-slate-300 w-4 h-4" />
             </div>
@@ -65,11 +68,12 @@ export default function TextInput({
           <input
             id={name}
             type={type}
-            {...register(`${name}`, { required: true })}
+            {...register(name, { required: true })}
             className={cn(
-              "block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-sm",
-              (errors[`${name}`] && "focus:ring-red-500 pl-8") ||
-                (icon && "pl-8")
+              "block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              (errors[name] && "focus:ring-red-500 pl-8") || (Icon && "pl-8"),
+              // Hover effects
+              "hover:ring-2 hover:ring-indigo-500 focus:ring-2 focus:ring-indigo-600"
             )}
             placeholder={placeholder || label}
           />
@@ -79,7 +83,9 @@ export default function TextInput({
             </p>
           )}
         </div>
-        {errors[`${name}`] && (
+
+        {/* Error message */}
+        {errors[name] && (
           <span className="text-xs text-red-600">{label} is required</span>
         )}
       </div>
