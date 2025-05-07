@@ -10,7 +10,7 @@ import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/comp
 import { CircleHelp } from "lucide-react";
 
 type PhoneInputProps<T extends string> = {
-    register: any,
+    register?: any,
     control: any;
     errors: any;
     name: T;

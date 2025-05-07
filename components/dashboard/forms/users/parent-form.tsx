@@ -28,20 +28,22 @@ export type SelectOptionProps = {
 label: string;
 value: string;
 };
-type StudentFormProps = {
+type ParentFormProps = {
 editingId?: string | undefined;
 initialData?: any | undefined | null;
 };
-export type StudentProps={
+export type ParentProps={
 name:string,
 email:string,
 password:string,
 imageUrl:string
+title:string
+relationshipToStudent:string
 }
-export default function StudentForm({
+export default function ParentForm({
 editingId,
 initialData,
-}: StudentFormProps) {
+}: ParentFormProps) {
 const parents = [
 {
 label: 'Nonhlanhla Dlalisa',
@@ -354,6 +356,13 @@ label: "Ndebele",
 value: "ndebele"
 },
 ];
+const titleOptions = [
+  { label: "Mr", value: "Mr" },
+  { label: "Ms", value: "Ms" },
+  { label: "Mrs", value: "Mrs" },
+  { label: "Miss", value: "Miss" },
+  { label: "Dr", value: "Dr" },
+];
 
 const {
 control,
@@ -361,7 +370,7 @@ register,
 handleSubmit,
 reset,
 formState: { errors },
-} = useForm<StudentProps>({
+} = useForm<ParentProps>({
 defaultValues: {
 name: "",
 },
@@ -372,7 +381,7 @@ const [loading, setLoading] = useState(false);
 const initialImage = initialData?.imageUrl || "/placeholder.svg";
 const [imageUrl, setImageUrl] = useState(initialImage);
 
-async function saveStudent(data: StudentProps) {
+async function saveParent(data: ParentProps) {
 try {
 setLoading(true);
 data.imageUrl = imageUrl;
@@ -399,7 +408,7 @@ console.log(error);
 }
 // console.log(status);
 
-return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
+return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
      href="/students"
      parent=""
      title="Student"
@@ -412,6 +421,13 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
     <div className="lg:col-span-12 col-span-full space-y-3">
     <div className="grid gap-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <FormSelectInput
+                label="Title"
+                name="title"
+                options={titleOptions}
+                control={control}
+                errors={errors.title}
+              />
               <TextInput
                 register={register}
                 errors={errors}
@@ -425,8 +441,10 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 label="Last Name"
                 name="lastName"
                 icon={User}
-              />
-              <TextInput
+              />              
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <TextInput
                 register={register}
                 errors={errors}
                 label="Date of Birth"
@@ -434,23 +452,20 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 type="date"
                 icon={CalendarIcon}
               />
-            </div>
-            <div className="grid md:grid-cols-2 gap-3">
-            
+             <TextInput
+                register={register}
+                errors={errors}
+                label="ID Number"
+                name="id"
+                icon={Fingerprint}
+              />  
             <FormSelectInput
                 label="Gender"
                 options={gender}
                 control={control}
                 name="gender"
                 errors={errors}
-              />
-              <TextInput
-                register={register}
-                errors={errors}
-                label="ID Number"
-                name="id"
-                icon={Fingerprint}
-              />        
+              />                
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <FormSelectInput
@@ -467,15 +482,12 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 name="ethnicity"
                 errors={errors}
               />
-              <FormSelectInput
-                label="Parent"
-                options={parents}
-                control={control}
-                name="parent"
-                errors={errors}
-                toolTipText="Add new parent"
-                href="/dashboard/parents/new"
-              /> 
+              <TextInput
+                label="Relationship to Student"
+                name="relationshipToStudent"
+                register={register}
+                errors={errors.relationshipToStudent}
+              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <PhoneInput
@@ -573,10 +585,10 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
               </div>
               <div className='grid'>
                 <ImageInput
-                  title="Student Profile Image"
+                  title="Parent Profile Image"
                   imageUrl={imageUrl}
                   setImageUrl={setImageUrl}
-                  endpoint="StudentProfileImage"
+                  endpoint="ParentProfileImage"
                   className="object-contain"
                 />
             </div>
@@ -591,10 +603,10 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
     </div> */}
   </div>
   <FormFooter
-    href="/students"
+    href="/parent"
     editingId={editingId}
     loading={loading}
-    title="Student"
+    title="Parent"
     parent=""
   />
 </form>
