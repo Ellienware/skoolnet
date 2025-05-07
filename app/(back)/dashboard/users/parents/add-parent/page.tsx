@@ -3,13 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { UserPlus, UsersRound } from "lucide-react"
 import SingleStudentForm from "@/components/dashboard/forms/students/student-form"
 import BulkStudentForm from "@/components/dashboard/forms/students/bulk-student-form"
+import ParentForm from "@/components/dashboard/forms/users/parent-form"
 
 export default function StudentAdmissionTabs() {
   return (
     <div className="w-full max-w-5xl mx-auto py-6">
           <Card className="border-t-4 border-indigo-600 shadow">
             <CardContent className="p-6">
-              <SingleStudentForm/>
+              <ParentForm/>
             </CardContent>
           </Card>
     </div>

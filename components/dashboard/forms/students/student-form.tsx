@@ -18,7 +18,7 @@ import ImageInput from "@/components/FormInput/ImageInput";
 import TextArea from "@/components/FormInput/TextAreaInput";
 import TextInput from "@/components/FormInput/TextInput";
 import toast from "react-hot-toast";
-import { CalendarIcon, Fingerprint, Hash, IdCard, LocateFixed, LockIcon, Mail, MapPin, PhoneIcon, User } from "lucide-react";
+import { CalendarIcon, Fingerprint, Hash, IdCard, Languages, LocateFixed, LockIcon, Mail, MapPin, PhoneIcon, User } from "lucide-react";
 import PasswordInput from "@/components/FormInput/PasswordInput";
 import FormSelectInput from "@/components/FormInput/FormSelectInput";
 import PhoneInput from "@/components/FormInput/PhoneInput";
@@ -82,12 +82,12 @@ value: '8206285886086'
 ]
 const gender = [
 {
-label: 'MALE',
-value: 'MALE'
+label: 'Male',
+value: 'Male'
 },
 {
-label: 'FEMALE',
-value: 'FEMALE'
+label: 'Female',
+value: 'Female'
 },
 ]
 const countries = [
@@ -353,6 +353,10 @@ value: "tshivenda"
 label: "Ndebele",
 value: "ndebele"
 },
+{
+  label: "Other",
+  value: "other"
+},
 ];
 
 const {
@@ -411,7 +415,7 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
   <div className="grid grid-cols-12 gap-6 py-8">
     <div className="lg:col-span-12 col-span-full space-y-3">
     <div className="grid gap-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid md:grid-cols-2 gap-3">
               <TextInput
                 register={register}
                 errors={errors}
@@ -426,23 +430,17 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 name="lastName"
                 icon={User}
               />
-              <TextInput
+            
+            </div>
+            <div className="grid md:grid-cols-2 gap-3">
+            
+                <TextInput
                 register={register}
                 errors={errors}
                 label="Date of Birth"
                 name="dob"
                 type="date"
                 icon={CalendarIcon}
-              />
-            </div>
-            <div className="grid md:grid-cols-2 gap-3">
-            
-            <FormSelectInput
-                label="Gender"
-                options={gender}
-                control={control}
-                name="gender"
-                errors={errors}
               />
               <TextInput
                 register={register}
@@ -453,6 +451,13 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
               />        
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <FormSelectInput
+                label="Gender"
+                options={gender}
+                control={control}
+                name="gender"
+                errors={errors}
+              />
             <FormSelectInput
                 label="Nationality"
                 options={countries}
@@ -467,15 +472,25 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 name="ethnicity"
                 errors={errors}
               />
-              <FormSelectInput
+                                            
+            </div>
+            <div className="grid md:grid-cols-2 gap-3">
+            <FormSelectInput
+                label="Home Language"
+                options={languages}
+                control={control}
+                name="language"
+                errors={errors}
+              />
+            <FormSelectInput
                 label="Parent"
                 options={parents}
                 control={control}
                 name="parent"
                 errors={errors}
                 toolTipText="Add new parent"
-                href="/dashboard/parents/new"
-              /> 
+                href="/dashboard/users/parents/add-parent"
+              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <PhoneInput

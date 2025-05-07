@@ -18,7 +18,7 @@ import ImageInput from "@/components/FormInput/ImageInput";
 import TextArea from "@/components/FormInput/TextAreaInput";
 import TextInput from "@/components/FormInput/TextInput";
 import toast from "react-hot-toast";
-import { CalendarIcon, Fingerprint, Hash, IdCard, LocateFixed, LockIcon, Mail, MapPin, PhoneIcon, User } from "lucide-react";
+import { Briefcase, CalendarIcon, Fingerprint, Hash, IdCard, Languages, LocateFixed, LockIcon, Mail, MapPin, MessageCircle, PhoneIcon, User } from "lucide-react";
 import PasswordInput from "@/components/FormInput/PasswordInput";
 import FormSelectInput from "@/components/FormInput/FormSelectInput";
 import PhoneInput from "@/components/FormInput/PhoneInput";
@@ -38,58 +38,38 @@ email:string,
 password:string,
 imageUrl:string
 title:string
-relationshipToStudent:string
 }
 export default function ParentForm({
 editingId,
 initialData,
 }: ParentFormProps) {
-const parents = [
+
+const relationshipToStudent = [
 {
-label: 'Nonhlanhla Dlalisa',
-value: '8908255776087'
+label: 'Father',
+value: 'Father'
 },
 {
-label: 'Jabulani Nkosi',
-value: '8206285886086'
-},
-]
-const classes = [
-{
-label: 'S1',
-value: '8908255776087'
+label: 'Mother',
+value: 'Mother'
 },
 {
-label: 'S2',
-value: '8206285886086'
-},
-]
-const streams = [
-{
-label: 'S1A',
-value: '8908255776087'
+  label: 'Legal Guardian',
+  value: 'Legal Guardian'
 },
 {
-label: 'S1B',
-value: '8908255776087'
-},
-{
-label: 'S2A',
-value: '8206285886086'
-},
-{
-label: 'S2B',
-value: '8206285886086'
+  label: 'Other',
+  value: 'Other'
 },
 ]
 const gender = [
 {
-label: 'MALE',
-value: 'MALE'
+label: 'Male',
+value: 'Male'
 },
 {
-label: 'FEMALE',
-value: 'FEMALE'
+label: 'Female',
+value: 'Female'
 },
 ]
 const countries = [
@@ -355,6 +335,10 @@ value: "tshivenda"
 label: "Ndebele",
 value: "ndebele"
 },
+{
+  label: "Other",
+  value: "other"
+  },
 ];
 const titleOptions = [
   { label: "Mr", value: "Mr" },
@@ -408,10 +392,12 @@ console.log(error);
 }
 // console.log(status);
 
-return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
-     href="/students"
+return ( 
+<form className="" onSubmit={handleSubmit(saveParent)}> 
+  <FormHeader
+     href="/parents"
      parent=""
-     title="Student"
+     title="Parent"
      editingId={editingId}
      loading={loading}
    />
@@ -420,7 +406,6 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
   <div className="grid grid-cols-12 gap-6 py-8">
     <div className="lg:col-span-12 col-span-full space-y-3">
     <div className="grid gap-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               <FormSelectInput
                 label="Title"
                 name="title"
@@ -428,6 +413,8 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 control={control}
                 errors={errors.title}
               />
+            <div className="grid md:grid-cols-2 gap-3">
+              
               <TextInput
                 register={register}
                 errors={errors}
@@ -443,7 +430,7 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 icon={User}
               />              
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid md:grid-cols-2 gap-3">
             <TextInput
                 register={register}
                 errors={errors}
@@ -459,15 +446,16 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 name="id"
                 icon={Fingerprint}
               />  
+                           
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <FormSelectInput
                 label="Gender"
                 options={gender}
                 control={control}
                 name="gender"
                 errors={errors}
-              />                
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              /> 
             <FormSelectInput
                 label="Nationality"
                 options={countries}
@@ -481,13 +469,23 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 control={control}
                 name="ethnicity"
                 errors={errors}
-              />
-              <TextInput
+              />                          
+            </div>
+            <div className="grid md:grid-cols-2 gap-3">           
+            <FormSelectInput
+                label="Home Language"
+                options={languages}
+                control={control}
+                name="language"
+                errors={errors}
+              />              
+            <FormSelectInput
                 label="Relationship to Student"
                 name="relationshipToStudent"
-                register={register}
-                errors={errors.relationshipToStudent}
-              />
+                errors={errors} 
+                control={control} 
+                options={relationshipToStudent}              
+                />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <PhoneInput
@@ -495,7 +493,14 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 errors={errors}
                 name="phone"
                 label="Phone Number"
-                icon={PhoneIcon} register={undefined}
+                icon={PhoneIcon}
+              />
+              <PhoneInput
+                control={control}
+                errors={errors}
+                name="WhatsAppNo"
+                label="WhatsApp No."
+                icon={MessageCircle}                
               />
             <TextInput
                 register={register}
@@ -504,54 +509,23 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 name="email"
                 type="email"
                 icon={Mail}
-              />
-              <PasswordInput
+              /> 
+            </div>
+            <div className="grid md:grid-cols-2 gap-3">
+            <TextInput
+                register={register}
+                errors={errors}
+                label="Occupation"
+                name="occupation"
+                icon={Briefcase}
+              /> 
+            <PasswordInput
                 register={register}
                 errors={errors}
                 label="Password"
                 name="password"
                 icon={LockIcon}
-              />  
-            </div>
-            <div className="grid md:grid-cols-2 gap-3">
-              <TextInput
-                register={register}
-                errors={errors}
-                label="Address"
-                name="address"
-                icon={MapPin}
-              />
-              <TextInput
-                register={register}
-                errors={errors}
-                label="Zip Code"
-                name="code"
-                icon={LocateFixed}
-              />
-            </div>
-            {/* <div className="grid md:grid-cols-2 gap-3">
-              
-             
-            </div> */}
-            <div className="grid md:grid-cols-2 gap-3">
-             <FormSelectInput
-                label="Class"
-                options={classes}
-                control={control}
-                name="class"
-                errors={errors}
-                toolTipText="Add new class"
-                href="/dashboard/academics/new"
-              />
-              <FormSelectInput
-                label="Streams"
-                options={streams}
-                control={control}
-                name="stream"
-                errors={errors}
-                toolTipText="Add new stream"
-                href="/dashboard/academics/new"
-              />                 
+              /> 
             </div>
           <div className="grid md:grid-cols-2 gap-3">
               <div>
@@ -559,25 +533,24 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
                 <TextInput
                   register={register}
                   errors={errors}
-                  label="Roll No."
-                  name="rollNo"
-                  icon={IdCard}
-                /> 
-                  <TextInput
-                    register={register}
-                    errors={errors}
-                    label="Reg No"
-                    name="regNo"
-                    icon={IdCard}
-                  />
-                                      
+                  label="Address"
+                  name="address"
+                  icon={MapPin}
+              />
+              <TextInput
+                  register={register}
+                  errors={errors}
+                  label="Zip Code"
+                  name="code"
+                  icon={LocateFixed}
+              />                                     
                 </div>              
                 <div className="grid gap-3">
                 <TextInput
                     register={register}
                     errors={errors}
-                    label="Admission Date"
-                    name="admissionDate"
+                    label="Reg Date"
+                    name="regDate"
                     type="date"
                     icon={CalendarIcon}
                   /> 
@@ -596,18 +569,13 @@ return ( <form className="" onSubmit={handleSubmit(saveParent)}> <FormHeader
             
           </div>
     </div>
-    {/* <div className="lg:col-span-4 col-span-full ">
-      <div className="grid auto-rows-max items-start gap-4 ">
-        
-      </div>
-    </div> */}
   </div>
   <FormFooter
-    href="/parent"
+    href="/parents"
     editingId={editingId}
     loading={loading}
     title="Parent"
-    parent=""
+    parent="users"
   />
 </form>
 

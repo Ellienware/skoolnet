@@ -1,3 +1,4 @@
+import { metadata } from "@/app/layout";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 
@@ -8,8 +9,22 @@ export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
   categoryImage: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
     async ({ metadata, file }) => {
-      console.log("file url", file.url);
-      return { uploadedBy: "JB" };
+      console.log("file url", file.ufsUrl);
+      return { uploadedBy: 'EW' };
+    }
+  ),
+  studentProfileImage: f({ image: { maxFileSize: '1MB' } }).
+  onUploadComplete(
+    async({ metadata, file })=> {
+      console.log('file Url', file.ufsUrl)
+      return { uploadedBy: 'EW' }
+    }
+  ),
+  parentProfileImage: f({ image: { maxFileSize: '1MB' } }).
+  onUploadComplete(
+    async({ metadata, file })=> {
+      console.log('file Url', file.ufsUrl)
+      return { uploadedBy: 'EW' }
     }
   ),
   fileUploads: f({
@@ -35,7 +50,7 @@ export const ourFileRouter = {
     "application/zip": { maxFileSize: "1MB", maxFileCount: 4 },
   }).onUploadComplete(async ({ metadata, file }) => {
     console.log("file url", file.url);
-    return { uploadedBy: "JB" };
+    return { uploadedBy: 'EW'};
   }),
   mailAttachments: f({
     image: { maxFileSize: "1MB", maxFileCount: 4 },
@@ -60,7 +75,7 @@ export const ourFileRouter = {
     "application/zip": { maxFileSize: "1MB", maxFileCount: 4 },
   }).onUploadComplete(async ({ metadata, file }) => {
     console.log("file url", file.url);
-    return { uploadedBy: "JB" };
+    return { uploadedBy: 'EW' };
   }),
 } satisfies FileRouter;
 
