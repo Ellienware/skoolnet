@@ -1,0 +1,203 @@
+import { ClassData } from "@/lib/types"
+
+
+export const sampleClassData: ClassData[] = [
+  {
+    id: "class-1",
+    name: "1",
+    sections: [
+      {
+        id: "section-1a",
+        name: "A",
+        studentCount: 32,
+        boyCount: 18,
+        girlCount: 14,
+        averageGPA: 3.6,
+        classTeacher: "Ms. Johnson",
+        topPerformer: {
+          id: "student-1",
+          name: "Emma Wilson",
+          gpa: 4.0,
+        },
+      },
+      {
+        id: "section-1b",
+        name: "B",
+        studentCount: 30,
+        boyCount: 16,
+        girlCount: 14,
+        averageGPA: 3.5,
+        classTeacher: "Mr. Thompson",
+        topPerformer: {
+          id: "student-2",
+          name: "James Miller",
+          gpa: 3.9,
+        },
+      },
+    ],
+  },
+  {
+    id: "class-2",
+    name: "2",
+    sections: [
+      {
+        id: "section-2a",
+        name: "A",
+        studentCount: 35,
+        boyCount: 19,
+        girlCount: 16,
+        averageGPA: 3.7,
+        classTeacher: "Ms. Davis",
+        topPerformer: {
+          id: "student-3",
+          name: "Sophia Brown",
+          gpa: 4.0,
+        },
+      },
+      {
+        id: "section-2b",
+        name: "B",
+        studentCount: 33,
+        boyCount: 17,
+        girlCount: 16,
+        averageGPA: 3.6,
+        classTeacher: "Mr. Wilson",
+        topPerformer: {
+          id: "student-4",
+          name: "Oliver Taylor",
+          gpa: 3.9,
+        },
+      },
+      {
+        id: "section-2c",
+        name: "C",
+        studentCount: 31,
+        boyCount: 15,
+        girlCount: 16,
+        averageGPA: 3.5,
+        classTeacher: "Ms. Martinez",
+        topPerformer: {
+          id: "student-5",
+          name: "Ava Johnson",
+          gpa: 3.8,
+        },
+      },
+    ],
+  },
+  {
+    id: "class-3",
+    name: "3",
+    sections: [
+      {
+        id: "section-3a",
+        name: "A",
+        studentCount: 34,
+        boyCount: 18,
+        girlCount: 16,
+        averageGPA: 3.6,
+        classTeacher: "Mr. Anderson",
+        topPerformer: {
+          id: "student-6",
+          name: "Noah Williams",
+          gpa: 3.9,
+        },
+      },
+      {
+        id: "section-3b",
+        name: "B",
+        studentCount: 32,
+        boyCount: 16,
+        girlCount: 16,
+        averageGPA: 3.5,
+        classTeacher: "Ms. Thomas",
+        topPerformer: {
+          id: "student-7",
+          name: "Isabella Jones",
+          gpa: 3.8,
+        },
+      },
+    ],
+  },
+  {
+    id: "class-4",
+    name: "4",
+    sections: [
+      {
+        id: "section-4a",
+        name: "A",
+        studentCount: 36,
+        boyCount: 20,
+        girlCount: 16,
+        averageGPA: 3.7,
+        classTeacher: "Mr. Jackson",
+        topPerformer: {
+          id: "student-8",
+          name: "Liam Brown",
+          gpa: 4.0,
+        },
+      },
+      {
+        id: "section-4b",
+        name: "B",
+        studentCount: 34,
+        boyCount: 18,
+        girlCount: 16,
+        averageGPA: 3.6,
+        classTeacher: "Ms. White",
+        topPerformer: {
+          id: "student-9",
+          name: "Charlotte Davis",
+          gpa: 3.9,
+        },
+      },
+    ],
+  },
+  {
+    id: "class-5",
+    name: "5",
+    sections: [
+      {
+        id: "section-5a",
+        name: "A",
+        studentCount: 38,
+        boyCount: 20,
+        girlCount: 18,
+        averageGPA: 3.8,
+        classTeacher: "Ms. Harris",
+        topPerformer: {
+          id: "student-10",
+          name: "Ethan Miller",
+          gpa: 4.0,
+        },
+      },
+      {
+        id: "section-5b",
+        name: "B",
+        studentCount: 36,
+        boyCount: 19,
+        girlCount: 17,
+        averageGPA: 3.7,
+        classTeacher: "Mr. Clark",
+        topPerformer: {
+          id: "student-11",
+          name: "Amelia Wilson",
+          gpa: 3.9,
+        },
+      },
+      {
+        id: "section-5c",
+        name: "C",
+        studentCount: 34,
+        boyCount: 18,
+        girlCount: 16,
+        averageGPA: 3.6,
+        classTeacher: "Ms. Lewis",
+        topPerformer: {
+          id: "student-12",
+          name: "Benjamin Moore",
+          gpa: 3.8,
+        },
+      },
+    ],
+  },
+]

@@ -101,10 +101,10 @@ export default function AppSidebar() {
         },
         {
           title: "Academics",
-          url: "/academics",
+          url: "/dashboard/academics",
           icon: BookOpen,
           items: [
-            { title: "Curriculum", url: "/academics/curriculum" },
+            { title: "Classes & Streams", url: "/dashboard/academics/classes" },
             { title: "Timetable", url: "/academics/timetable" },
             { title: "Examinations", url: "/academics/examinations" },
             { title: "Assignments", url: "/academics/assignments" },

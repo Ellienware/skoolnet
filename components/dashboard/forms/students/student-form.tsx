@@ -22,6 +22,7 @@ import { CalendarIcon, Fingerprint, Hash, IdCard, Languages, LocateFixed, LockIc
 import PasswordInput from "@/components/FormInput/PasswordInput";
 import FormSelectInput from "@/components/FormInput/FormSelectInput";
 import PhoneInput from "@/components/FormInput/PhoneInput";
+import InfoBanner from "@/components/info-banner";
 
 
 export type SelectOptionProps = {
@@ -403,16 +404,16 @@ console.log(error);
 }
 // console.log(status);
 
-return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
+return ( <form className="" onSubmit={handleSubmit(saveStudent)}> 
+<FormHeader
      href="/students"
      parent=""
      title="Student"
      editingId={editingId}
      loading={loading}
    />
-
-
   <div className="grid grid-cols-12 gap-6 py-8">
+  
     <div className="lg:col-span-12 col-span-full space-y-3">
     <div className="grid gap-6">
             <div className="grid md:grid-cols-2 gap-3">
@@ -432,8 +433,14 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
               />
             
             </div>
-            <div className="grid md:grid-cols-2 gap-3">
-            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <FormSelectInput
+                label="Gender"
+                options={gender}
+                control={control}
+                name="gender"
+                errors={errors}
+              />
                 <TextInput
                 register={register}
                 errors={errors}
@@ -452,12 +459,35 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <FormSelectInput
-                label="Gender"
-                options={gender}
+                label="Parent"
+                options={parents}
                 control={control}
-                name="gender"
+                name="parent"
                 errors={errors}
+                toolTipText="Add new parent"
+                href="/dashboard/users/parents/add-parent"
               />
+            <FormSelectInput
+                label="Class"
+                options={classes}
+                control={control}
+                name="class"
+                errors={errors}
+                toolTipText="Add new class"
+                href="/dashboard/academics/classes"
+              />
+              <FormSelectInput
+                label="Stream/Section"
+                options={streams}
+                control={control}
+                name="stream"
+                errors={errors}
+                toolTipText="Add new stream"
+                href="/dashboard/academics/classes"
+              />                 
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            
             <FormSelectInput
                 label="Nationality"
                 options={countries}
@@ -472,25 +502,13 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 name="ethnicity"
                 errors={errors}
               />
-                                            
-            </div>
-            <div className="grid md:grid-cols-2 gap-3">
-            <FormSelectInput
+              <FormSelectInput
                 label="Home Language"
                 options={languages}
                 control={control}
                 name="language"
                 errors={errors}
-              />
-            <FormSelectInput
-                label="Parent"
-                options={parents}
-                control={control}
-                name="parent"
-                errors={errors}
-                toolTipText="Add new parent"
-                href="/dashboard/users/parents/add-parent"
-              />
+              />                                           
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             <PhoneInput
@@ -531,31 +549,7 @@ return ( <form className="" onSubmit={handleSubmit(saveStudent)}> <FormHeader
                 name="code"
                 icon={LocateFixed}
               />
-            </div>
-            {/* <div className="grid md:grid-cols-2 gap-3">
-              
-             
-            </div> */}
-            <div className="grid md:grid-cols-2 gap-3">
-             <FormSelectInput
-                label="Class"
-                options={classes}
-                control={control}
-                name="class"
-                errors={errors}
-                toolTipText="Add new class"
-                href="/dashboard/academics/new"
-              />
-              <FormSelectInput
-                label="Streams"
-                options={streams}
-                control={control}
-                name="stream"
-                errors={errors}
-                toolTipText="Add new stream"
-                href="/dashboard/academics/new"
-              />                 
-            </div>
+            </div>          
           <div className="grid md:grid-cols-2 gap-3">
               <div>
                 <div className="grid gap-3">
